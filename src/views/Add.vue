@@ -58,7 +58,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.list{
 		--background: #000;
 		background: #000;
