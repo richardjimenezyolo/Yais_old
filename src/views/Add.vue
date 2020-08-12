@@ -2,6 +2,7 @@
 	<ion-content id="main" class="bg">
 
 		<ion-toolbar color="dark">
+			<ion-button color="dark" slot="start" href="#/"><ion-icon name="arrow-back-sharp"></ion-icon></ion-button>
 			<ion-title>
 				Agenda una nueva cita
 			</ion-title>
