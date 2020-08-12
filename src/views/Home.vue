@@ -44,7 +44,8 @@
     },
     methods: {
       showEvent({ event }) {
-        console.log(event)
+        console.log(event);
+        location.href =  `#/read/${event.id}`;
       }
     },
     data(){

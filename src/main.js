@@ -8,17 +8,17 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import Home from './views/Home.vue'
 import Add from './views/Add.vue'
+import Read from './views/Read.vue'
 
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 
-const routes = [
-	{path: '/', component: Home},
-	{path: '/add', component: Add},
-]
-
 const router = new VueRouter({
-	routes
+	routes: [
+		{path: '/', component: Home},
+		{path: '/add', component: Add},
+		{path: '/read/:id', component: Read},
+	]
 })
 
 
