@@ -16,9 +16,15 @@
 			    <ion-input></ion-input>
 		  	</ion-item>
 
-		  	<ion-item class="bg">
+			<ion-item class="bg"></ion-item>
 		  	
+		  	<ion-item color="dark">
+			    <ion-label position="floating">Procedimiento</ion-label>
+			    <ion-input></ion-input>
 		  	</ion-item>
+
+			<ion-item class="bg"></ion-item>
+
 
 			<ion-item color="dark">
 				<ion-label>
@@ -27,13 +33,22 @@
 				<ion-datetime :value="today"></ion-datetime>
 			</ion-item>
 
+			<ion-item class="bg"></ion-item>
+
+			<ion-item color="dark">
+				<ion-label>
+					Hora de entrada:
+				</ion-label>
+				<ion-datetime display-format="h:mm A" picker-format="h:mm A" :value="today"></ion-datetime>
+			</ion-item>
+
 			<ion-item class="bg">
 			
 			</ion-item>
 
 			<ion-item color="dark">
 				<ion-label>
-					Hora:
+					Hora de salida:
 				</ion-label>
 				<ion-datetime display-format="h:mm A" picker-format="h:mm A" :value="today"></ion-datetime>
 			</ion-item>
