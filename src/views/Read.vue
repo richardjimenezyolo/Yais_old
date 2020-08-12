@@ -24,6 +24,15 @@
 
 		<ion-item color="dark">
 			<ion-label>
+				Procedimiento:
+			</ion-label>
+			{{ procedimiento }}
+		</ion-item>
+
+		<ion-item class="bg"></ion-item>
+
+		<ion-item color="dark">
+			<ion-label>
 				Entrada:
 			</ion-label>
 			{{ entrada }}
@@ -58,6 +67,7 @@
 			console.log(cita)
 
 			this.nombre = cita.nombre;
+			this.procedimiento = cita.procedimiento;
 			this.entrada = cita.entrada.replace("T", " ");
 			this.salida = cita.salida.replace("T", " ");
 		},
