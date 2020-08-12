@@ -1,13 +1,22 @@
 <template>
   <ion-content id="main">
+
     <ion-toolbar color="dark">
       <ion-title>
         Yais
       </ion-title>
     </ion-toolbar>
+
     <v-app>
       <v-calendar :events="events" color="purple" :dark="dark" :type="mode" @click:event="showEvent"></v-calendar>
     </v-app>
+  
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="danger" href="#/add">
+        <ion-icon name="add-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
   </ion-content>
 </template>
 

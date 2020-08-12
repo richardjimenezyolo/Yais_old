@@ -7,12 +7,14 @@ import VueRouter from 'vue-router';
 
 import App from './App.vue';
 import Home from './views/Home.vue'
+import Add from './views/Add.vue'
 
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 
 const routes = [
 	{path: '/', component: Home},
+	{path: '/add', component: Add},
 ]
 
 const router = new VueRouter({
