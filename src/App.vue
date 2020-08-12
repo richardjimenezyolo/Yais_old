@@ -23,6 +23,14 @@
 	</ion-app>
 </template>
 
+<script>
+	export default {
+		created() {
+			console.clear()
+		}
+	}
+</script>
+
 <style>
 	.bg{
 		--background: #000;
