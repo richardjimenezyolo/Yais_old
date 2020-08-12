@@ -11,7 +11,7 @@
       <v-calendar :events="events" color="purple" :dark="dark" :type="mode" @click:event="showEvent"></v-calendar>
     </v-app>
   
-    <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button color="danger" href="#/add">
         <ion-icon name="add-sharp"></ion-icon>
       </ion-fab-button>
@@ -22,6 +22,15 @@
 
 <script>
   export default {
+    created() {
+      console.clear()
+      const lts = JSON.parse(JSON.stringify(localStorage))
+      console.log(lts)
+
+      for (var i in lts) {
+        console.log(JSON.parse(localStorage.getItem(i)))
+      }
+    },
     methods: {
       showEvent({ event }) {
         console.log(event)
@@ -31,30 +40,7 @@
       return {
         dark: true,
         mode: 'week',
-        today: '2020-08-12',
-        events: [
-          {
-            name: 'Maria Alejandra',
-            start: '2020-08-11 09:00',
-            end: '2020-08-11 10:00',
-          },
-          {
-            name: 'Test',
-            start: '2020-08-09 05:00',
-            end:   '2020-08-09 09:00',
-          },
-          {
-            id: "yolo",
-            name: 'Marta Antoinia',
-            start: '2020-08-12 09:00',
-            end: '2020-08-12 15:00'
-          },
-          {
-            name: 'Mario Neta',
-            start: '2020-08-13 12:30',
-            end: '2020-08-13 15:30',
-          },
-        ],
+        events: [],
       }
     },
   }

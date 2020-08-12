@@ -12,15 +12,15 @@
 		<ion-list class="list">
 
 			<ion-item color="dark">
-			    <ion-label position="floating">Nombre del cliente</ion-label>
-			    <ion-input></ion-input>
+			    <ion-label position="floating">Nombre del cliente:</ion-label>
+			    <ion-input id="nombre"></ion-input>
 		  	</ion-item>
 
 			<ion-item class="bg"></ion-item>
 		  	
 		  	<ion-item color="dark">
-			    <ion-label position="floating">Procedimiento</ion-label>
-			    <ion-input></ion-input>
+			    <ion-label position="floating">Procedimiento:</ion-label>
+			    <ion-input id="procedimiento"></ion-input>
 		  	</ion-item>
 
 			<ion-item class="bg"></ion-item>
@@ -28,43 +28,46 @@
 
 			<ion-item color="dark">
 				<ion-label>
-					Dia:
+					Entrada:
 				</ion-label>
-				<ion-datetime :value="today"></ion-datetime>
+				<input type="datetime-local" id="entrada">
 			</ion-item>
 
 			<ion-item class="bg"></ion-item>
 
 			<ion-item color="dark">
 				<ion-label>
-					Hora de entrada:
+					Salida:
 				</ion-label>
-				<ion-datetime display-format="h:mm A" picker-format="h:mm A" :value="today"></ion-datetime>
+				<input type="datetime-local" id="salida">
 			</ion-item>
 
-			<ion-item class="bg">
-			
-			</ion-item>
-
-			<ion-item color="dark">
-				<ion-label>
-					Hora de salida:
-				</ion-label>
-				<ion-datetime display-format="h:mm A" picker-format="h:mm A" :value="today"></ion-datetime>
-			</ion-item>
-
-			<ion-item class="bg">
-			
-			</ion-item>
+			<ion-item class="bg"></ion-item>
 
 		</ion-list>
 
-		<ion-button color="danger" expand="block">Guardar</ion-button>
+		<ion-button color="danger" expand="block" @click="save">Guardar</ion-button>
 	</ion-content>
 </template>
 
 <script>
 	export default {
+		methods: {
+			save() {
+				const nombre = document.querySelector("#nombre").value
+				const procedimiento = document.querySelector("#procedimiento").value
+				const entrada = document.querySelector("#entrada").value
+				const salida = document.querySelector("#salida").value
+
+				console.table([nombre, procedimiento, entrada, salida])
+
+				const id = Math.random()
+
+				localStorage.setItem(`${id}`, JSON.stringify({"nombre": nombre, "procedimiento": procedimiento, "entrada": entrada, "salida": salida}))
+
+				location.href = '#/';
+			}
+		},
 		data() {
 			return {
 				today: new Date()
