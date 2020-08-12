@@ -28,7 +28,15 @@
       console.log(lts)
 
       for (var i in lts) {
-        console.log(JSON.parse(localStorage.getItem(i)))
+        try {
+          const cita = JSON.parse(localStorage.getItem(i))
+          console.log(cita)
+          this.events.push({name: cita.nombre, start: cita.entrada, end: cita.salida, id: i} )
+        } catch(e) {
+          // statements
+          // console.log(e);
+        }
+        
       }
     },
     methods: {
