@@ -6,7 +6,7 @@
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
       <ion-title>
-        Yais
+        Yais-{{ month }}
       </ion-title>
 
       <ion-button slot="end" color="dark" @click="moveLeft"><ion-icon name="caret-back-outline"></ion-icon></ion-button>
@@ -30,10 +30,14 @@
 <script>
   import moment from 'moment';
 
+  moment.locale('es')
+
   export default {
     created() {
       const lts = JSON.parse(JSON.stringify(localStorage))
       // console.log(lts)
+
+      this.month = moment(this.today).format("MMMM")
 
       for (var i in lts) {
         try {
@@ -53,8 +57,9 @@
         console.clear()
 
 
-        var view = moment(this.today).subtract(7, 'days').format("MM DD Y").split(" ")
+        var view = moment(this.today).subtract(7, 'days').format("MM DD Y").split(" ");
 
+        this.month = moment(this.today).format("MMMM")
 
         console.log(view)
 
@@ -64,8 +69,9 @@
         console.clear()
 
 
-        var view = moment(this.today).add(7, 'days').format("MM DD Y").split(" ")
+        var view = moment(this.today).add(7, 'days').format("MM DD Y").split(" ");
 
+        this.month = moment(this.today).format("MMMM")
 
         console.log(view)
 
@@ -81,6 +87,7 @@
         today: new Date(),
         dark: true,
         mode: 'week',
+        month: "Aug",
         events: [],
       }
     },
