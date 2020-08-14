@@ -29,29 +29,55 @@
 
 <script>
   import moment from 'moment';
+  import url from '../.env.js';
 
   moment.locale('es')
 
   export default {
     created() {
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET",`${url}/`,true)
+      xhr.send()
+      xhr.onreadystatechange = () => {
+          if (xhr.readyState == 4 && xhr.status == 200){
+            console.clear()
+              var response = JSON.parse(xhr.response);
+              
+
+              for (var i in response.res) {
+                this.get(response.res[i])                  
+              }
+          }
+      }
+
       const lts = JSON.parse(JSON.stringify(localStorage))
       // console.log(lts)
 
       this.month = moment(this.today).format("MMMM")
 
-      for (var i in lts) {
-        try {
-          const cita = JSON.parse(localStorage.getItem(i))
-          // console.log(cita)
-          this.events.push({name: cita.nombre, start: cita.entrada, end: cita.salida, id: i} )
-        } catch(e) {
-          // statements
-          // console.log(e);
-        }
-        
-      }
     },
     methods: {
+      get(cita) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET",`${url}/get?q=${cita}`,true)
+        xhr.send()
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200){
+                var response = xhr.response;
+                
+                // this.events.push(JSON.parse(response))
+
+                const obj = JSON.parse(response)
+
+                console.log(obj)
+
+                obj.id = cita
+
+                this.events.push(obj)
+            }
+        }
+      },
       moveLeft(){
 
         console.clear()

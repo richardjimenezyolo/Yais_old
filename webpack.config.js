@@ -4,7 +4,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'www'),
         compress: true,
-        port: 5000
+        port: 8080
     },
     module: {
         rules: [
