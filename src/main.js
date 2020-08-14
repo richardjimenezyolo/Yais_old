@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify/lib';
 import 'vuetify/dist/vuetify.min.css';
 
 import VueRouter from 'vue-router';
