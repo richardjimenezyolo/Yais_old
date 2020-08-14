@@ -6,6 +6,7 @@
 			<ion-title>
 				Cita de {{ nombre }}
 			</ion-title>
+			<ion-button color="dark" slot="end" @click="del"><ion-icon name="trash-outline"></ion-icon></ion-button>
 		</ion-toolbar>
 		
 		<br>
@@ -53,14 +54,7 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				id: this.$route.params.id,
-				nombre: "",
-				entrada: "",
-				salida: ""
-			}
-		},
+		
 		created() {
 			const cita = JSON.parse(localStorage.getItem(this.id))
 
@@ -71,6 +65,19 @@
 			this.entrada = cita.entrada.replace("T", " ");
 			this.salida = cita.salida.replace("T", " ");
 		},
-		
+		methods: {
+			del() {
+				localStorage.removeItem(this.id);
+				location.href = '#/';
+			}
+		},
+		data() {
+			return {
+				id: this.$route.params.id,
+				nombre: "",
+				entrada: "",
+				salida: ""
+			}
+		},
 	}
 </script>
