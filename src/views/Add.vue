@@ -68,7 +68,7 @@ export default {
                 }
             }
 
-            // location.href = '#/';
+            location.href = '#/';
         }
     },
     data() {
