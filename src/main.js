@@ -14,17 +14,17 @@ Vue.use(Vuetify)
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-	routes: [
-		{path: '/', component: Home},
-		{path: '/add', component: Add},
-		{path: '/read/:id', component: Read},
-	]
+    routes: [
+        { path: '/', component: Home },
+        { path: '/add', component: Add },
+        { path: '/read/:id', component: Read },
+    ]
 })
 
 
 new Vue({
-	router,
-	vuetify: new Vuetify(),
-	el: '#app',
-	render: h => h(App)
+    router,
+    vuetify: new Vuetify(),
+    el: '#app',
+    render: h => h(App)
 })
