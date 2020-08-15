@@ -38,13 +38,14 @@ export default {
         xhr.send()
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                console.clear()
                 var response = JSON.parse(xhr.response);
 
 
                 for (var i in response.res) {
                     this.get(response.res[i])
                 }
+            } else if (xhr.status == 0) {
+                alert("Imposible conectarse con el servidor")
             }
         }
 

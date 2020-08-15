@@ -64,11 +64,17 @@ export default {
             xhr.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = this.response;
+
+                    location.href = '#/';
+
                     console.log(response)
+
+                } else if (xhr.status == 0) {
+                    alert("Imposible conectarse con el servidor")
                 }
             }
 
-            location.href = '#/';
+            
         }
     },
     data() {
