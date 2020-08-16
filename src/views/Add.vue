@@ -19,7 +19,7 @@
                 <ion-label position="floating">Procedimiento:</ion-label>
                 <ion-input id="procedimiento"></ion-input>
             </ion-item>
-             <ion-item class="bg"></ion-item>
+            <ion-item class="bg"></ion-item>
             <ion-item color="dark">
                 <ion-label position="floating">numero:</ion-label>
                 <ion-input id="numero"></ion-input>
@@ -43,6 +43,7 @@
         <ion-button color="danger" expand="block" @click="save">Guardar</ion-button>
     </ion-content>
 </template>
+
 <script>
 import url from '../.env.js';
 
@@ -65,23 +66,27 @@ export default {
                 "end": salida,
             }
 
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", `${url}/add`, true)
-            xhr.send(JSON.stringify(data))
-            xhr.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = this.response;
+            if (data.name != "" && data.procedimiento != "" && data.numero != "" && data.start != "" && data.end != "") {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", `${url}/add`, true)
+                xhr.send(JSON.stringify(data))
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = this.response;
 
-                    location.href = '#/';
+                        location.href = '#/';
 
-                    console.log(response)
+                        console.log(response)
 
-                } else if (xhr.status == 0) {
-                    alert("Imposible conectarse con el servidor")
+                    } else if (xhr.status == 0) {
+                        alert("Imposible conectarse con el servidor")
+                    }
                 }
+            } else {
+                alert("TODOS LOS CAMPOS TIENES QUE ESTAR LLENOS PARA PORDER GUARDAR")
             }
 
-            
+
         }
     },
     data() {
@@ -91,6 +96,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .list {
     --background: #000;

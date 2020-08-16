@@ -28,7 +28,7 @@
             </ion-label>
             {{ procedimiento }}
         </ion-item>
-         <ion-item class="bg"></ion-item>
+        <ion-item class="bg"></ion-item>
         <ion-item color="dark">
             <ion-label>
                 Numero:
@@ -51,8 +51,9 @@
         </ion-item>
     </ion-content>
 </template>
+
 <script>
-	import url from '../.env.js';
+import url from '../.env.js';
 
 export default {
 
@@ -73,8 +74,8 @@ export default {
                 this.nombre = obj.name
                 this.procedimiento = obj.procedimiento
                 this.numero = obj.numero
-                this.entrada = obj.start.replace("T"," ")
-                this.salida = obj.end.replace("T"," ")
+                this.entrada = obj.start.replace("T", " ")
+                this.salida = obj.end.replace("T", " ")
             }
         }
     },
@@ -82,20 +83,20 @@ export default {
         del() {
             if (confirm("DESEAS BORRAR ESTA CITA?")) {
                 var xhr = new XMLHttpRequest();
-            xhr.open("GET",`${url}/del?q=${this.id}`,true)
-            xhr.send()
-            xhr.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200){
-                    var response = this.response;
-                    
-                    console.log(response);
+                xhr.open("GET", `${url}/del?q=${this.id}`, true)
+                xhr.send()
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = this.response;
 
-                    location.href = '#/';
+                        console.log(response);
+
+                        location.href = '#/';
+                    }
                 }
-            }
-        } else {
+            } else {
 
-        }
+            }
         },
 
     },

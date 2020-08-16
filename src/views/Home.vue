@@ -24,6 +24,7 @@
         </ion-fab>
     </ion-content>
 </template>
+
 <script>
 import moment from 'moment';
 import url from '../.env.js';
