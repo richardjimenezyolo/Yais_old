@@ -19,6 +19,11 @@
                 <ion-label position="floating">Procedimiento:</ion-label>
                 <ion-input id="procedimiento"></ion-input>
             </ion-item>
+             <ion-item class="bg"></ion-item>
+            <ion-item color="dark">
+                <ion-label position="floating">numero:</ion-label>
+                <ion-input id="numero"></ion-input>
+            </ion-item>
             <ion-item class="bg"></ion-item>
             <ion-item color="dark">
                 <ion-label>
@@ -47,15 +52,17 @@ export default {
             const nombre = document.querySelector("#nombre").value
             const procedimiento = document.querySelector("#procedimiento").value
             const entrada = document.querySelector("#entrada").value
+            const numero = document.querySelector("#numero").value
             const salida = document.querySelector("#salida").value
 
-            console.table([nombre, procedimiento, entrada, salida])
+            console.table([nombre, procedimiento, entrada, salida, numero])
 
             const data = {
                 "name": nombre,
                 "procedimiento": procedimiento,
+                "numero": numero,
                 "start": entrada,
-                "end": salida
+                "end": salida,
             }
 
             var xhr = new XMLHttpRequest();

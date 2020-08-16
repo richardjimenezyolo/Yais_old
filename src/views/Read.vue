@@ -28,6 +28,13 @@
             </ion-label>
             {{ procedimiento }}
         </ion-item>
+         <ion-item class="bg"></ion-item>
+        <ion-item color="dark">
+            <ion-label>
+                Numero:
+            </ion-label>
+            {{ numero }}
+        </ion-item>
         <ion-item class="bg"></ion-item>
         <ion-item color="dark">
             <ion-label>
@@ -65,6 +72,7 @@ export default {
 
                 this.nombre = obj.name
                 this.procedimiento = obj.procedimiento
+                this.numero = obj.numero
                 this.entrada = obj.start.replace("T"," ")
                 this.salida = obj.end.replace("T"," ")
             }
@@ -72,8 +80,22 @@ export default {
     },
     methods: {
         del() {
-            localStorage.removeItem(this.id);
-            location.href = '#/';
+            if (confirm("DESEAS BORRAR ESTA CITA?")) {
+                var xhr = new XMLHttpRequest();
+            xhr.open("GET",`${url}/del?q=${this.id}`,true)
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200){
+                    var response = this.response;
+                    
+                    console.log(response);
+
+                    location.href = '#/';
+                }
+            }
+        } else {
+
+        }
         },
 
     },
@@ -83,6 +105,7 @@ export default {
             nombre: "",
             entrada: "",
             procedimiento: "",
+            numero: "",
             salida: ""
         }
     },
