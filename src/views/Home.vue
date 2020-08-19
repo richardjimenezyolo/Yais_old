@@ -15,7 +15,7 @@
             </ion-button>
         </ion-toolbar>
         <v-app>
-            <v-calendar :events="events" color="purple" :value="today" :dark="dark" :type="mode" @click:event="showEvent"></v-calendar>
+            <v-calendar :events="events" color="pink" :value="today" :dark="dark" :type="mode" @click:event="showEvent"></v-calendar>
         </v-app>
         <ion-fab vertical="bottom" horizontal="end" slot="fixed">
             <ion-fab-button color="danger" href="#/add">
