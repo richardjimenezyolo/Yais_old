@@ -21,8 +21,8 @@
             </ion-item>
             <ion-item class="bg"></ion-item>
             <ion-item color="dark">
-                <ion-label position="floating">numero:</ion-label>
-                <ion-input id="numero"></ion-input>
+                <ion-label position="floating">número:</ion-label>
+                <ion-input type="number" id="numero"></ion-input>
             </ion-item>
             <ion-item class="bg"></ion-item>
             <ion-item color="dark">
