@@ -6,12 +6,12 @@ import 'vuetify/dist/vuetify.min.css';
 import VueRouter from 'vue-router';
 
 import App from './App.vue';
-import Home from './views/Home.vue'
-import Add from './views/Add.vue'
-import Read from './views/Read.vue'
+import Home from './views/Home.vue';
+import Add from './views/Add.vue';
+import Read from './views/Read.vue';
 
-Vue.use(Vuetify)
-Vue.use(VueRouter)
+Vue.use(Vuetify);
+Vue.use(VueRouter);
 
 const router = new VueRouter({
     routes: [
@@ -19,7 +19,7 @@ const router = new VueRouter({
         { path: '/add', component: Add },
         { path: '/read/:id', component: Read },
     ]
-})
+});
 
 
 new Vue({
@@ -27,4 +27,4 @@ new Vue({
     vuetify: new Vuetify(),
     el: '#app',
     render: h => h(App)
-})
+});
