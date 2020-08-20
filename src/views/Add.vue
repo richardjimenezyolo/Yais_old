@@ -50,11 +50,11 @@ import url from '../.env.js';
 export default {
     methods: {
         save() {
-            const nombre = document.querySelector("#nombre").value
+            const nombre        = document.querySelector("#nombre").value
             const procedimiento = document.querySelector("#procedimiento").value
-            const entrada = document.querySelector("#entrada").value
-            const numero = document.querySelector("#numero").value
-            const salida = document.querySelector("#salida").value
+            const entrada       = document.querySelector("#entrada").value
+            const numero        = document.querySelector("#numero").value
+            const salida        = document.querySelector("#salida").value
 
             console.table([nombre, procedimiento, entrada, salida, numero])
 
@@ -67,6 +67,7 @@ export default {
             }
 
             if (data.name != "" && data.procedimiento != "" && data.numero != "" && data.start != "" && data.end != "") {
+                
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", `${url}/add`, true)
                 xhr.send(JSON.stringify(data))
